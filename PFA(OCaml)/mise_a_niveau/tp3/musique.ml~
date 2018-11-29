@@ -1,5 +1,0 @@
-type note = Do | Re | Mi | Fa | Sol | La | Si ;;
-type hauteur = { note : note; octave: int } ;;
-type duree = Blanche | Noire ;;
-type signe = Note of hauteur * duree | Silence of duree ;;
-type partition = { signe : signe list; tempo : int };;
