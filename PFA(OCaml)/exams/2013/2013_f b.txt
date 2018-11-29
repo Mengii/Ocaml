@@ -1,0 +1,28 @@
+let rec f b =
+  if !b <= 0 then raise Exit;
+  begin
+    b := !b - 2;
+    f b;
+    b := !b + 4
+  end
+;;
+let a = ref 9 in try f a; !a+20 with Exit -> !a;;
+
+# #trace f;;
+f is now traced.
+# let a = ref 9 in try f a; !a+20 with Exit -> !a;;
+f <-- {contents = 9}
+f <-- {contents = 7}
+f <-- {contents = 5}
+f <-- {contents = 3}
+f <-- {contents = 1}
+f <-- {contents = -1}
+f raises Pervasives.Exit
+f raises Pervasives.Exit
+f raises Pervasives.Exit
+f raises Pervasives.Exit
+f raises Pervasives.Exit
+f raises Pervasives.Exit
+- : int = -1
+# #untrace f;;
+f is no longer traced.

@@ -1,0 +1,25 @@
+let rec mystere x y =
+  if not x then 0
+  else if y then 2 + mystere y (not x)
+  else 1 + mystere y (not x);;
+ val mystere : bool -> bool -> int = <fun>
+mystere true true;;
+
+# #trace mystere;;
+mystere is now traced.
+# mystere true true;;
+mystere <-- true
+mystere --> <fun>
+mystere* <-- true
+mystere <-- true
+mystere --> <fun>
+mystere* <-- false
+mystere <-- false
+mystere --> <fun>
+mystere* <-- false
+mystere* --> 0
+mystere* --> 1
+mystere* --> 3
+- : int = 3
+# #untrace mystere;;
+mystere is no longer traced.

@@ -1,0 +1,47 @@
+let rec mystere1 x =
+  if !x <= 1 then ()
+  else
+    let y = !x in
+    print_int y;
+    print_newline ();
+    begin
+      decr x;
+      print_int !x;
+      print_newline ();
+      mystere1 x;
+      x := y + !x;
+      print_int !x;
+      print_newline ()
+     end;;
+let x = ref 5 in (mystere1 x; !x);;
+
+# #trace mystere1;;
+mystere1 is now traced.
+# let x = ref 5 in (mystere1 x; !x);;
+mystere1 <-- {contents = 5}
+5
+4
+mystere1 <-- {contents = 4}
+4
+3
+mystere1 <-- {contents = 3}
+3
+2
+mystere1 <-- {contents = 2}
+2
+1
+mystere1 <-- {contents = 1}
+mystere1 --> ()
+3
+mystere1 --> ()
+6
+mystere1 --> ()
+10
+mystere1 --> ()
+15
+mystere1 --> ()
+- : int = 15
+# #untrace mystere1;;
+mystere1 is no longer traced.
+
+

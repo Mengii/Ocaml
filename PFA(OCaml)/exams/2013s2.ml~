@@ -1,0 +1,9 @@
+let f1 g (x, y) = (g x, y);;
+let f2 x y = try x/y with Division_by_zero -> Print_string "erreur";;
+let rec f3 x y =
+  match (x,y) with
+  | ([], 0) -> true
+  | (u::l, z) -> f3 l (z+1)
+  | _ -> false;;
+let f4 x y = if true then [x] else y;;
+let rec f5 (x,y) = (f5 (y, x - 1)) +. 1.5;;

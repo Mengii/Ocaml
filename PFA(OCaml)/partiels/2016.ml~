@@ -1,0 +1,4 @@
+let rec f x y =
+  if x < y then print_int x; y + 2;;
+
+f 1 2;;

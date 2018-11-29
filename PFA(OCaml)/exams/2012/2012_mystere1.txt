@@ -1,0 +1,29 @@
+let rec mystere1 x = function
+  | [] -> [x]
+  | y :: l -> mystere1 ([y]::x) l;;
+#     val mystere1 : 'a list list -> 'a list -> 'a list list list = <fun>
+
+mystere1 [] [1;2;3];;
+
+# #trace mystere1;;
+mystere1 is now traced.
+# mystere1 [] [1;2;3];;
+mystere1 <-- []
+mystere1 --> <fun>
+mystere1* <-- [<poly>; <poly>; <poly>]
+mystere1 <-- [[<poly>]]
+mystere1 --> <fun>
+mystere1* <-- [<poly>; <poly>]
+mystere1 <-- [[<poly>]; [<poly>]]
+mystere1 --> <fun>
+mystere1* <-- [<poly>]
+mystere1 <-- [[<poly>]; [<poly>]; [<poly>]]
+mystere1 --> <fun>
+mystere1* <-- []
+mystere1* --> [[[<poly>]; [<poly>]; [<poly>]]]
+mystere1* --> [[[<poly>]; [<poly>]; [<poly>]]]
+mystere1* --> [[[<poly>]; [<poly>]; [<poly>]]]
+mystere1* --> [[[<poly>]; [<poly>]; [<poly>]]]
+- : int list list list = [[[3]; [2]; [1]]]
+# #untrace mystere1;;
+mystere1 is no longer traced.

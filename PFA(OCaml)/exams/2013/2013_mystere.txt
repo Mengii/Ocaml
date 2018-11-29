@@ -1,0 +1,26 @@
+let mystere a =
+  let r = ref 0 in
+  let l = ref a in
+  while !l<>[] do
+    let x = List.hd !l in
+    r := !r + x;
+    print_int !r;
+    print_newline ();
+    l := List.tl !l
+  done;
+  !r;;
+ val mystere : int list -> int = <fun>
+mystere [4;1;5;3];;
+
+# #trace mystere;;
+mystere is now traced.
+# mystere [4;1;5;3];;
+mystere <-- [4; 1; 5; 3]
+4
+5
+10
+13
+mystere --> 13
+- : int = 13
+# #untrace mystere;;
+mystere is no longer traced.

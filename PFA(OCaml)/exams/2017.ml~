@@ -1,0 +1,7 @@
+let f1 (x, y) z = if z then x::[y] else [];;
+let f2 x y = 4 + ((y x) 1);;
+let rec f3 x = not (f3 x);;
+let rec f4 x =
+  match x with
+  | [] -> []
+  | z::_ -> f4 z;;

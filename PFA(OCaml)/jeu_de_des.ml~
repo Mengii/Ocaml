@@ -1,0 +1,1 @@
+let lancer_de = Random.int 6 + 1 ;;

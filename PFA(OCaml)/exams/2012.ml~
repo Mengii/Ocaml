@@ -1,0 +1,4 @@
+let l = "ab" :: ['a';'b'];;
+let f2 x =
+  let g y = y+1 in g x;;
+

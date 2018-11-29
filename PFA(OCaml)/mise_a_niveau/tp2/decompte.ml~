@@ -1,0 +1,15 @@
+let rec decompte n =
+  match n with
+  | 0 -> ()
+  | _ -> print_int n; decompte (n - 1);;
+
+decompte 10;;
+
+let compte n =
+  let rec compte_aux n acc =
+    match n with
+    | 0 -> ()
+    | _ -> if acc <> n then print_int acc; compte_aux n (acc + 1)
+  in compte_aux n 1;;
+
+compte 10;;
